@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: #2c2f33; 
+            color: #f0f0f0;
+        }
+        
+        header {
+            background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+            color: white;
+            padding: 20px;
+            font-size: 26px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+    
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #1a1a2e; 
+            color: #ffffff; 
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #ff4d6d;
+            transform: scale(1.1);
+        }
+
+        section {
+            display: none;
+            padding: 40px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+    
+        .logo {
+            width: 130px;
+            height: 130px;
+            background: url('https://scontent.fcrk2-4.fna.fbcdn.net/v/t39.30808-6/457447420_2016598568775025_172139221205362920_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHrUAYwv5G_Gf4CcLUOEYO2kXijd2HcRcOReKN3YdxFwxJqaurHv56gn8X_9zrR_yiZ0EkYjijbznlo0QClRN9z&_nc_ohc=9yq5oNlbUpwQ7kNvgFtIl37&_nc_oc=AdmfARNNz2T-AObN5SAwpXprkm6HUIgQdgO0R6-QoZsC0HTh_ZXLKFdOoIRkYdf3ihc&_nc_zt=23&_nc_ht=scontent.fcrk2-4.fna&_nc_gid=z2pGw9x93SCUv38QSnqblw&oh=00_AYGn88tTOsnkQECAbp0C1TaiBTo0RQSSA-68IVkI4pzVKQ&oe=67F29678')no-repeat center center/cover;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .active {
+            display: block;
+            font-size: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .about-container, .contact-card {
+            font-size: 20px;
+            max-width: 600px;
+            margin: auto;
+            background: #222;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        }
+    
+        .about-container {
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .about-text {
+            flex: 1;
+            padding-right: 20px;
+            text-align: left;
+            font-size: 20px
+        }
+
+        .contact-card p {
+            font-size: 24px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-card i {
+            font-size: 20px;
+            color: #6a11cb;
+        }
+
+    </style>
+</head>
+<body>
+ 
+    <header>
+        <i class="fas fa-briefcase"></i> Welcome to My Portfolio
+    </header>
+
+    <nav>
+        <a href="#" onclick="showPage('home')">Home</a>=
+        <a href="#" onclick="showPage('about')">About</a>
+        <a href="#" onclick="showPage('contact')">Contact</a>
+    </nav>
+  
+    <section id="home">
+        <h2>Welcome!</h2>
+        <div class="about-container">
+            <div class="about-text">
+                <p><i>"Success is not about luck, it's about persistence, dedication, and never giving up"</i></p>
+                <p>Every challenge is an opportunity to learn, grow, and achieve greatness.</p>
+            </div>
+        </div>
+    </section>
+    
+   
+    <section id="about" class="active">
+        <h2>About Me</h2>
+        <div class="about-container">
+            <div class="about-text">
+                <p>Hi, I'm <b>Christian Karl Capiral</b>,a third-year Information Technology student at Tarlac State University.I'm passionate about technology and aspire to become a skilled network administrator, with a goal of working abroad in the future.</p>
+            </div>
+            <div class="logo"></div>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-card">
+            <p>
+                <i class="fas fa-envelope"></i> 
+                Email: capiralchristian22@gmail.com
+            </p>
+            <p>
+                <i class="fas fa-phone"></i> 
+                Phone: 09635179138
+            </p>
+            <p>
+                <i class="fab fa-github"></i> 
+                GitHub: <a href="https://github.com/Capcap000" target="_blank" style="color: #6a11cb;">Capcap000</a>
+            </p>
+        </div>
+    </section>
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
